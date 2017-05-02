@@ -1,8 +1,7 @@
-import React, { Component, PropTypes } from 'react'
-import _uniq from 'lodash/uniq'
-import _without from 'lodash/without'
-import classNames from 'classnames'
-import Loader from 'react-throbber'
+import React, { Component, PropTypes } from "react";
+import _uniq from "lodash/uniq";
+import _without from "lodash/without";
+import classNames from "classnames";
 
 
 class TokenInput extends Component {
@@ -15,6 +14,8 @@ class TokenInput extends Component {
     id: PropTypes.string,
     // Whether options are being loaded
     isLoading: PropTypes.bool,
+    // custom loader element
+    loaderElement: PropTypes.element,
     // Maximum options to select
     maxLength: PropTypes.number,
     // Input name
@@ -133,6 +134,7 @@ class TokenInput extends Component {
       disabled,
       id,
       isLoading,
+      loaderElement,
       maxLength,
       name,
       placeholder,
@@ -167,11 +169,11 @@ class TokenInput extends Component {
                 onFocus={this.openDropdown}
               />
               <div className="ReactTokenInput__options-list">
-                { isLoading ?
-                  <Loader padding="3"/>
-                  : this.options.length ?
-                  this.options.map(this.renderOption)
-                  : <div className="text-muted p-1">No options</div>
+                { isLoading && (loaderElement || <span className="ReactTokenInput__loading-label">Loading...</span>) }
+                {
+                  this.options.length ?
+                    this.options.map(this.renderOption)
+                    : <div className="text-muted p-1">No options</div>
                 }
               </div>
             </div>
@@ -199,7 +201,10 @@ class TokenInput extends Component {
         key={`token_${selected.id}`}
         className="ReactTokenInput__token"
       >
-        <i className="icon-times" onClick={this.handleRemove(selected.id)}/>
+        <span className="icon-times"
+              onClick={this.handleRemove(selected.id)}>
+          &times;
+        </span>
         {selected.name}
       </div>
     )

@@ -1,0 +1,78 @@
+$border-radius: 3px !default;
+$brand-primary: #14b3ff !default;
+$font-size-sm: 12px !default;
+$border-color: #ccc !default;
+$border: 1px solid $border-color !default;
+
+.ReactTokenInput {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+  justify-content: flex-start;
+  padding: .5rem 0;
+  max-width: 320px;
+  margin: 0 0 1rem;
+  border-bottom: $border;
+}
+
+.ReactTokenInput__loading-label {
+  display: block;
+  padding: 5px 0;
+  color: $border-color;
+  text-align: center;
+  font-size: 12px;
+}
+
+.ReactTokenInput__token {
+  border-radius: $border-radius;
+  background: $brand-primary;
+  color: #fff !important;
+  font-size: $font-size-sm;
+  line-height: 1.5;
+  margin: 5px 5px 5px 0;
+  padding: 2px 4px;
+
+  .icon-times {
+    cursor: pointer;
+    margin: 0 3px;
+    font-size: 1.2em;
+  }
+}
+
+.ReactTokenInput__input-col {
+  &:first-child:last-child {
+    width: 100%;
+  }
+}
+
+.ReactTokenInput__input {
+  width: 100%;
+  height: calc(2em + 3px);
+  border: 0;
+  padding: 0;
+}
+
+.ReactTokenInput__options-list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  background-color: #fff;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  max-height: 250px;
+  overflow: scroll;
+  border: $border;
+
+  .ReactTokenInput--open & {
+    display: block;
+  }
+}
+
+.ReactTokenInput__option {
+  display: block;
+  padding: .6em;
+  border-bottom: $border;
+  cursor: default;
+}

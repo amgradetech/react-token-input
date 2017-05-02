@@ -32,8 +32,9 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "gulp-sass": "^3.1.0",
     "lodash": "^4.17.4",
     "react": "^15.4.2",
-    "react-throbber": "1.0.3"
+    "react-spinner": "^0.2.7"
   }
 }
