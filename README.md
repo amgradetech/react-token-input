@@ -1,5 +1,5 @@
 # REACT INPUT TOKEN
-[screenshot]()
+![screenshot](https://github.com/amgradetech/react-token-input/blob/master/screenshot.png)
 
 ## Basic usage
 ```javascript
